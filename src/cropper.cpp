@@ -11,7 +11,6 @@
 #include <cmath>
 #include <dynamic_reconfigure/server.h>
 #include <rr_msgs/BeePosition.h>
-//#include <stroll_bearnav/featureExtractionConfig.h>
 #include <std_msgs/Int32.h>
 
 using namespace cv;
@@ -23,6 +22,10 @@ image_transport::Publisher imagePup;
 
 Mat inputImage;
 Mat outputImage;
+
+int x,y;
+bool detected;
+int lastID;
 
 /* dynamic reconfigure of surf threshold and showing images */
 //void callback(rr_courtdetector::featureExtractionConfig &config, uint32_t level)
@@ -47,6 +50,9 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg)
 
 void cropPointCallback(const rr_msgs::BeePosition::ConstPtr& msg)
 {
+	x = msg->u;
+	y = msg->v;
+	detected = msg->visible;
 }
 
 int main(int argc, char** argv)
