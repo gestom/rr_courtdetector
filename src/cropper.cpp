@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <cmath>
 #include <dynamic_reconfigure/server.h>
+#include <rr_msgs/BeePosition.h>
 //#include <stroll_bearnav/featureExtractionConfig.h>
 #include <std_msgs/Int32.h>
 
@@ -44,7 +45,7 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg)
 	inputImage=cv_ptr->image;
 }
 
-void cropPointCallback(const std_msgs::Int32::ConstPtr& msg)
+void cropPointCallback(const rr_msgs::BeePosition::ConstPtr& msg)
 {
 }
 
